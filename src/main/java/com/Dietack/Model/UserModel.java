@@ -3,6 +3,7 @@ package com.Dietack.Model;
 import com.Dietack.Model.Bean.User;
 import javax.naming.NamingException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,7 +15,7 @@ public class UserModel {
     private static List<User> executeQuery(PreparedStatement prepStatement) throws SQLException {
 
         ResultSet rs = prepStatement.executeQuery();
-        List<User> res = new ArrayList<>();
+        List<User> res = new ArrayList<User>();
 
         try {
 
