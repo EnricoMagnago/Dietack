@@ -1,0 +1,1 @@
+ALTER TABLE test.ricetta ADD istruzioni TEXT NULL;
