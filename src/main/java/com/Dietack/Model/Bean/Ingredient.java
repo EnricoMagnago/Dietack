@@ -3,7 +3,7 @@ public class Ingredient {
 	private int id;
 	private String name;
 	private double calories;
-	private String measureUnit;
+	private String foto;
 
 	public int getId() {
 		return id;
@@ -29,7 +29,7 @@ public class Ingredient {
 		this.calories = calories;
 	}
 
-	public String getMeasureUnit(){ return this.measureUnit; }
+	public String getFoto(){ return this.foto; }
 
-	public void setMeasureUnit(String measureUnit){ this.measureUnit = measureUnit; }
+	public void setFoto(String measureUnit){ this.foto = measureUnit; }
 }
