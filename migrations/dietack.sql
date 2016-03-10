@@ -1,3 +1,4 @@
+DROP DATABASE `dietack`;
 CREATE DATABASE  IF NOT EXISTS `dietack` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `dietack`;
 -- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
@@ -29,6 +30,7 @@ CREATE TABLE `ingredienti` (
   `nome` varchar(50) NOT NULL,
   `kcal` float NOT NULL,
   `foto` varchar(200) DEFAULT NULL,
+  `um` varchar(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -154,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-10 20:35:58
+-- Dump completed on 2016-03-10 20:46:06
