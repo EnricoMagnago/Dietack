@@ -20,8 +20,8 @@ public class RecipeModel {
         ResultSet rs, rs2;
         Recipe res;
 
-        String query = "SELECT * from ingredienti\n" +
-                "WHERE id = ? ;";
+        String query = "SELECT * from ricetta\n" +
+                "WHERE id_ricetta = ? ;";
 
         connection = Connector.getConnection();
         PreparedStatement ps = connection.prepareStatement(query);
