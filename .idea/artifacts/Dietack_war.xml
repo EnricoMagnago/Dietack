@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Dietack:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="dietack.war">
+      <element id="artifact" artifact-name="Dietack:war exploded" />
+    </root>
+  </artifact>
+</component>
