@@ -2,15 +2,18 @@ package com.Dietack.Control;
 
 import com.Dietack.Model.Bean.Ingredient;
 import com.Dietack.Model.Bean.Recipe;
+import com.Dietack.Model.RecipeModel;
 import javafx.util.Pair;
 import org.json.simple.JSONObject;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -34,6 +37,13 @@ public class RecipesServlet extends HttpServlet {
 			ingredients = parseIngredients(ingredientsString);
 
 		List<Recipe> recipeList = null; //query that given ingredients gives recipe list with given ingr.
+		try {
+			recipeList = RecipeModel.filterByIngredients(ingredients);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
 		response.getWriter().write(toJSON(recipeList));
 	}
 
