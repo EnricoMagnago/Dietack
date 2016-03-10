@@ -62,13 +62,33 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Alimentazione
                     <small>Ricette Proposte</small>
-                    <button type="button" class="btn btn-success creaRicetta">Cerca Ricetta</button>
+                    
+                    <button type="button" class="btn btn-success creaRicetta"  data-toggle="modal" data-target="#basicModal">Cerca Ricetta</button>
 
                 </h1>
             </div>
         </div>
-        <!-- /.row -->
+        
+        
+        <!-- /.modal -->
 
+        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+             <h4 class="modal-title" id="myModalLabel">Inserisci ingredienti</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="inputIngredients">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn btn-primary" id="cerca" data-dismiss="modal">Cerca</button>
+        </div>
+    </div>
+  </div>
+</div>
+        
         <!-- Project One 
         <div class="row">
             <div class="col-md-7">
@@ -133,6 +153,7 @@
     </div>
     <!-- jQuery -->
         <script src="../js/jquery.js"></script>
+        <script src="../js/alimentazione.js"></script>
         
         <!-- Bootstrap Core JavaScript -->
         <script src="../js/bootstrap.min.js"></script>
