@@ -20,7 +20,6 @@ public class User implements Serializable {
 	private String phone;
 	private String email;
 	private String passwordHash;
-	private Date birthDate;
 	private LinkedList<EatEvent> eatEvents = null;
 	//private LinkedList<SportEvent> sportEvents;
 
@@ -76,15 +75,7 @@ public class User implements Serializable {
 	public void setPasswordHash(String passwordHash) {
 		this.passwordHash = passwordHash;
 	}
-
-	public Date getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
-
+	
 	public void addEatEvent(Recipe recipe){
 		if(eatEvents == null)
 			eatEvents = new LinkedList<EatEvent>();
