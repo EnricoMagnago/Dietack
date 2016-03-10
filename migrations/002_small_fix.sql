@@ -1,2 +1,0 @@
-ALTER TABLE ricetta ADD istruzioni TEXT NULL;
-ALTER TABLE ingredienti ADD um VARCHAR(5) NOT NULL;
