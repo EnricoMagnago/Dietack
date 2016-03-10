@@ -1,4 +1,4 @@
-package com.sonstuf.model;
+package com.Dietack.Model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
