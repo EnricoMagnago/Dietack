@@ -14,7 +14,7 @@ public class Recipe {
 	private String instructions;
 	private Set<Pair<Ingredient, Double>> ingredients; //ingredient and quantity.
 
-	public void Recipe(){
+	public Recipe(){
 		ingredients = new HashSet();
 	}
 
@@ -38,7 +38,7 @@ public class Recipe {
 		this.instructions = instructions;
 	}
 
-	public Set getIngredients() {
+	public Set<Pair<Ingredient, Double>> getIngredients() {
 		return ingredients;
 	}
 

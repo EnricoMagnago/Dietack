@@ -20,9 +20,15 @@ public class User implements Serializable {
 	private String phone;
 	private String email;
 	private String passwordHash;
+	private double calories;
 	private Date birthDate;
-	private LinkedList<EatEvent> eatEvents = null;
+	private List<EatEvent> eatEvents = null;
 	//private LinkedList<SportEvent> sportEvents;
+
+
+	public User(){
+		eatEvents = new LinkedList<EatEvent>();
+	}
 
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -77,6 +83,10 @@ public class User implements Serializable {
 		this.passwordHash = passwordHash;
 	}
 
+	public double getCalories(){ return this.calories; }
+
+	public void setCalories(double calories){ this.calories = calories; }
+
 	public Date getBirthDate() {
 		return birthDate;
 	}
@@ -86,8 +96,6 @@ public class User implements Serializable {
 	}
 
 	public void addEatEvent(Recipe recipe){
-		if(eatEvents == null)
-			eatEvents = new LinkedList<EatEvent>();
 		EatEvent eatEvent = new EatEvent(this.idUser, recipe, System.currentTimeMillis());
 		this.eatEvents.add(eatEvent);
 	}

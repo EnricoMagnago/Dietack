@@ -2,6 +2,7 @@ package com.Dietack.Control;
 
 import com.Dietack.Model.Bean.Ingredient;
 import com.Dietack.Model.Bean.Recipe;
+import javafx.util.Pair;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
@@ -49,8 +50,9 @@ public class RecipesServlet extends HttpServlet {
 
 		for(Recipe recipe : recipesList) { //encode every recipe in JSON and add to the list.
 			List<JSONObject> ingredientsJSON = new ArrayList<JSONObject>();
-			Set<Ingredient> ingredientsList = recipe.getIngredients();
-			for (Ingredient ing : ingredientsList) { //encode Ingredient in JSON.
+			Set<Pair<Ingredient, Double>> ingredientsList = recipe.getIngredients();
+			for (Pair<Ingredient, Double> couple : ingredientsList) { //encode Ingredient in JSON.
+				Ingredient ing = couple.getKey();
 				JSONObject jsonIng = new JSONObject();
 				jsonIng.put("id", ing.getId());
 				jsonIng.put("name", ing.getName());
@@ -73,4 +75,38 @@ public class RecipesServlet extends HttpServlet {
 		obj.put("recipes", recipeJSONList);
 		return obj.toJSONString();
 	}
+/* //just for testing toJSON.
+	public static void main(String args[]){
+		Ingredient[] ingredienti = new Ingredient[10];
+		for(int i=0; i<10; i++) {
+			ingredienti[i] = new Ingredient();
+			ingredienti[i].setName("ingr"+i);
+			ingredienti[i].setId(i);
+			ingredienti[i].setCalories(i);
+			ingredienti[i].setMeasureUnit("ms"+i);
+		}
+
+		List<Recipe> lista = new ArrayList<Recipe>();
+		Recipe ricetta1 = new Recipe();
+		ricetta1.setId(1);
+		ricetta1.setInstructions("per fare dei canederli gne gne");
+		ricetta1.setName("canederli");
+		for(int i=0; i< 5; i++)
+			ricetta1.addIngredient(ingredienti[i], 20*i%7/2);
+
+		lista.add(ricetta1);
+
+		Recipe ricetta2 = new Recipe();
+		ricetta2.setId(2);
+		ricetta2.setInstructions("se fa balotole de pan grataaaaaaa");
+		ricetta2.setName("proCnodel");
+		for(int i=5; i< 10; i++)
+			ricetta2.addIngredient(ingredienti[i], 9*i%7/2);
+
+		lista.add(ricetta2);
+		RecipesServlet servlet = new RecipesServlet();
+		System.out.println(servlet.toJSON(lista));
+	}*/
+
+
 }
