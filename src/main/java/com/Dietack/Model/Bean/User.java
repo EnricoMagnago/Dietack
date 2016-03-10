@@ -75,7 +75,7 @@ public class User implements Serializable {
 	public void setPasswordHash(String passwordHash) {
 		this.passwordHash = passwordHash;
 	}
-	
+
 	public void addEatEvent(Recipe recipe){
 		if(eatEvents == null)
 			eatEvents = new LinkedList<EatEvent>();
