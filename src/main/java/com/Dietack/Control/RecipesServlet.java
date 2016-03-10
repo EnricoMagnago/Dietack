@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -28,24 +29,24 @@ public class RecipesServlet extends HttpServlet {
 		response.setContentType("application/json");
 
 		String ingredientsString = request.getParameter("ingredients");
-		List<Ingredient> ingredients = null;
+		Collection<Ingredient> ingredients = null;
 		if(ingredientsString != null)
 			ingredients = parseIngredients(ingredientsString);
 
-		List<Recipe> recipeList = null; //query that given ingredients gives recipe list with given .
+		List<Recipe> recipeList = null; //query that given ingredients gives recipe list with given ingr.
 		response.getWriter().write(toJSON(recipeList));
 	}
 
-	private List<Ingredient> parseIngredients(String string){
+	private Collection<Ingredient> parseIngredients(String string){
 		String[] stringList = string.split(",");
-		List<Ingredient> ingredients = new ArrayList<Ingredient>(stringList.length);
+		Collection<Ingredient> ingredients = new ArrayList<Ingredient>(stringList.length);
 
 		// TODO check if the ingredients are in the db. -> query that given a list of ingrediends name returns a list of Ingrediens.
 		//ingredients = query(stringList);
 		return ingredients;
 	}
 
-	private String toJSON(List<Recipe> recipesList){
+	private String toJSON(Collection<Recipe> recipesList){
 		List<JSONObject> recipeJSONList = new ArrayList<JSONObject>(); //list of Recipe encoded in JSON
 
 		for(Recipe recipe : recipesList) { //encode every recipe in JSON and add to the list.

@@ -8,6 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by hypertesto on 10/03/16.
@@ -67,6 +70,12 @@ public class RecipeModel {
         return res;
 
 
+    }
+
+    public List<Recipe> filterByIngredients(Collection<Ingredient> ingredients){
+	    List<Recipe> recipes = new LinkedList<Recipe>();
+
+	    return recipes;
     }
 
 }
