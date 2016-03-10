@@ -1,6 +1,7 @@
 package com.Dietack.Model.Bean;
 
 import javafx.util.Pair;
+import javafx.util.StringConverter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +14,7 @@ public class Recipe {
 	private String name;
 	private String instructions;
 	private Set<Pair<Ingredient, Double>> ingredients; //ingredient and quantity.
+	private String foto;
 
 	public void Recipe(){
 		ingredients = new HashSet();
@@ -52,5 +54,13 @@ public class Recipe {
 			calories += element.getKey().getCalories()*element.getValue();
 		}
 		return calories;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 }
