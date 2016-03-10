@@ -1,2 +1,26 @@
 consigli ricette completo.
 atleti: stub.
+
+
+REST API:
+JSON per dire al front-end le ricette:
+{
+	"ricette": [{
+		"id": 1,
+		"name": "canederli",
+		"instructions": "per fare dei canederli",
+		"ingredients": [{
+				"id": 10,
+				"name": "patata",
+				"kcal": 10,
+				"measureUnit": "gr"
+			}, {
+				"id": 13,
+				"name": "pomodoro",
+				"kcal": 2,
+				"measureUnit": "gr"
+			}
+
+		]
+	}]
+}
