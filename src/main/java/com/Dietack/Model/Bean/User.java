@@ -21,7 +21,7 @@ public class User implements Serializable {
 	private String email;
 	private String passwordHash;
 	private Date birthDate;
-	private LinkedList<EatEvent> eatEvents;
+	private LinkedList<EatEvent> eatEvents = null;
 	//private LinkedList<SportEvent> sportEvents;
 
 	public static long getSerialVersionUID() {
@@ -86,6 +86,8 @@ public class User implements Serializable {
 	}
 
 	public void addEatEvent(Recipe recipe){
+		if(eatEvents == null)
+			eatEvents = new LinkedList<EatEvent>();
 		EatEvent eatEvent = new EatEvent(this.idUser, recipe, System.currentTimeMillis());
 		this.eatEvents.add(eatEvent);
 	}
