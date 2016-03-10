@@ -1,6 +1,7 @@
 package com.Dietack.Control;
 
 import com.Dietack.Model.Bean.Ingredient;
+import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Created by enrico on 10/03/16.
  */
@@ -25,14 +25,23 @@ public class RecipesServlet extends HttpServlet {
 
 		String ingredientsString = request.getParameter("ingredients");
 		List<Ingredient> ingredients = parseIngredients(ingredientsString);
+
+
 	}
 
 	private List<Ingredient> parseIngredients(String string){
 		String[] stringList = string.split(",");
 		List<Ingredient> ingredients = new ArrayList<Ingredient>(stringList.length);
-		
+
 		// TODO check if the ingredients are in the db. -> query that given a list of ingrediends name returns a list of Ingrediens.
 		//ingredients = query(stringList);
 		return ingredients;
+	}
+
+	private String toJSON(List<Ingredient> ingredientsList){
+		String json = "";
+		JSONObject obj = new JSONObject();
+		
+		return json;
 	}
 }
