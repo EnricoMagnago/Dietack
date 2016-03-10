@@ -5,7 +5,7 @@ atleti: stub.
 REST API:
 JSON per dire al front-end le ricette:
 {
-	"ricette": [{
+	"recipes": [{
 		"id": 1,
 		"name": "canederli",
 		"instructions": "per fare dei canederli",
