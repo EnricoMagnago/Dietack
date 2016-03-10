@@ -1,0 +1,1 @@
+ALTER TABLE ricetta ADD istruzioni TEXT NULL;

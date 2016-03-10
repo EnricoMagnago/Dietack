@@ -22,7 +22,7 @@ public class User implements Serializable {
 	private String passwordHash;
 	private double calories;
 	private Date birthDate;
-	private List<EatEvent> eatEvents = null;
+	private List<EatEvent> eatEvents;
 	//private LinkedList<SportEvent> sportEvents;
 
 

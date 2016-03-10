@@ -13,6 +13,7 @@ public class Recipe {
 	private String name;
 	private String instructions;
 	private Set<Pair<Ingredient, Double>> ingredients; //ingredient and quantity.
+	private String foto;
 
 	public Recipe(){
 		ingredients = new HashSet();
@@ -52,5 +53,13 @@ public class Recipe {
 			calories += element.getKey().getCalories()*element.getValue();
 		}
 		return calories;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 }
