@@ -1,7 +1,6 @@
 package com.Dietack.Model.Bean;
 
 import javafx.util.Pair;
-import javafx.util.StringConverter;
 
 import java.util.HashSet;
 import java.util.Set;
