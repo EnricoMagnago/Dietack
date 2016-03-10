@@ -48,4 +48,40 @@ public class IngredientModel {
         return res;
 
     }
+
+    public static Ingredient getIngredientByName ( String name ) throws SQLException, NamingException {
+
+        Connection connection;
+        ResultSet rs;
+        Ingredient res;
+
+        String query = "SELECT * from ingredienti\n" +
+                "WHERE nome = ? ;";
+
+        connection = Connector.getConnection();
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, name);
+
+        rs = ps.executeQuery();
+
+        if ( rs.next() ) {
+
+            res = new Ingredient();
+            res.setId(rs.getInt("id"));
+            res.setCalories(rs.getDouble("kcal"));
+            res.setFoto(rs.getString("foto"));
+
+        } else {
+
+            res = null;
+
+        }
+
+        rs.close();
+        ps.close();
+        connection.close();
+
+        return res;
+
+    }
 }
