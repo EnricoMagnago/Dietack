@@ -10,6 +10,7 @@ import java.util.Set;
  */
 public class Recipe {
 	private int id;
+	private String name;
 	private String instructions;
 	private Set<Pair<Ingredient, Double>> ingredients; //ingredient and quantity.
 
@@ -24,6 +25,10 @@ public class Recipe {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getName(){ return this.name; }
+
+	public void setName(String name){ this.name = name; }
 
 	public String getInstructions() {
 		return instructions;
