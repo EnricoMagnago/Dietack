@@ -39,6 +39,7 @@ public class RecipeModel {
 			res.setId(rs.getInt("id_ricetta"));
 			res.setName(rs.getString("nome"));
 			res.setFoto(rs.getString("foto"));
+			res.setInstructions(rs.getString("istruzioni"));
 
 			//now generate the list of pairs
 			String queryIngredienti = "SELECT * from ingredienti\n" +

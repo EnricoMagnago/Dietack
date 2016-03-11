@@ -36,6 +36,7 @@ public class IngredientModel {
             res.setId(rs.getInt("id"));
             res.setCalories(rs.getDouble("kcal"));
             res.setFoto(rs.getString("foto"));
+	        res.setMeasureUnit(rs.getString("um"));
 
         } else {
 
@@ -78,10 +79,12 @@ public class IngredientModel {
 
         if ( rs.next() ) {
 
-            res = new Ingredient();
-            res.setId(rs.getInt("id"));
-            res.setCalories(rs.getDouble("kcal"));
-            res.setFoto(rs.getString("foto"));
+	        res = new Ingredient();
+	        res.setId(rs.getInt("id"));
+	        res.setCalories(rs.getDouble("kcal"));
+	        res.setFoto(rs.getString("foto"));
+	        res.setMeasureUnit(rs.getString("um"));
+
 
         } else {
 
