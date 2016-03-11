@@ -55,7 +55,10 @@ public class RecipesServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		System.out.println("\trecipeList: " + recipeList.size() + "\n" + recipeList.get(0).getCalories() + "\n" + recipeList.get(1).getCalories());
+		System.out.println("user: " + user.getCalories());
 		Collection<Recipe> filteredRecipes = user.filterRecipesForDiet(recipeList);
+		System.out.println("\tfilteredRecipes: " + filteredRecipes.size());
 		if(filteredRecipes == null || filteredRecipes.isEmpty())
 			response.getWriter().write("{}");
 		else

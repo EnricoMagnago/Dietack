@@ -41,7 +41,7 @@ CREATE TABLE `ingredienti` (
 
 LOCK TABLES `ingredienti` WRITE;
 /*!40000 ALTER TABLE `ingredienti` DISABLE KEYS */;
-INSERT INTO `ingredienti` VALUES (1,'patate',100,'','kg'),(2,'carote',150,'','kg'),(3,'ducco d\'arancia',150,NULL,'l'),(4,'pasta',350,NULL,'kg');
+INSERT INTO `ingredienti` VALUES (1,'patate',7.7,'','kg'),(2,'carote',4.1,'','kg'),(3,'ducco d\'arancia',4.5,NULL,'l'),(4,'pasta',9,NULL,'kg');
 /*!40000 ALTER TABLE `ingredienti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +150,7 @@ CREATE TABLE `utente` (
 
 LOCK TABLES `utente` WRITE;
 /*!40000 ALTER TABLE `utente` DISABLE KEYS */;
-INSERT INTO `utente` VALUES (1,'tizio','caio','345678910','tizio@ca.io',2000),(2,'enrico','magnago','345244711','em@dietack.app',2000),(3,'enrico','testori','345164461','et@dietack.app',2000);
+INSERT INTO `utente` VALUES (1,'tizio','caio','345678910','tizio@ca.io',2800),(2,'enrico','magnago','345244711','em@dietack.app',2400),(3,'enrico','testori','345164461','et@dietack.app',2200);
 /*!40000 ALTER TABLE `utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
