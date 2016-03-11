@@ -128,7 +128,7 @@ public class RecipeModel {
 			if(ingredients != null && !ingredients.isEmpty()){
 				if (collectionTemp.containsAll(ingredients) && ingredients.size() != 0)
 					recipes.add(recipe);
-				
+
 			}else
 				recipes.add(recipe);
 
