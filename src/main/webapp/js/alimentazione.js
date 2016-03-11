@@ -5,15 +5,39 @@ $(document).ready(function(){
         setRecipeRandom($("#inputIngredients").val());
     });
     
+    $(".btnAccetta").click(function(event){
+        accept($(event.currentTarget).val());
+    });
+    
         
 });
 //ingredients=ciniewnsd,cdnsicns
 function setRecipeRandom(ingredients){
 
 
-    $.getJSON("/getRecipes?ingrdients="+ingredients, function(json){
+    $.getJSON("/getRecipes?ingredients="+ingredients, function(json){
 
         updateRecipeList(json);
+				
+    })
+            .done(function() {
+                console.log( "second success" );
+    })
+            .fail(function() {
+                console.log( "error" );
+    })
+            .always(function() {
+                console.log( "complete" );
+    });
+
+}
+
+function accept(id){
+
+
+    $.getJSON("/addRecipeToHistory?parametri="+id, function(json){
+
+       
 				
     })
             .done(function() {
@@ -49,7 +73,7 @@ function updateRecipeList(json){
 			"<h4 id=\"ingredienti\">ingredienti:</h4>"+
 				ingrediens +
 			"<p>Preparazione: <br> <span id=\"descRicetta\">"+json.recipes[i].instructions+"</span></p>"+
-			"<a class=\"btn btn-primary\" href=\"buonappetito.html\">Accetta <span class=\"glyphicon glyphicon-chevron-right\"></span></a>"+
+			"<a class=\"btn btn-primary btnAccetta\" href=\"buonappetito.html\" id=\""+json.recipes[i].id+"\">Accetta <span class=\"glyphicon glyphicon-chevron-right\"></span></a>"+
 			"</div>"+
 			"</div>" +
 			"<br><br><br>" );
