@@ -52,7 +52,7 @@ public class RecipeModel {
 			while ( rs2.next() ) {
 
 				Ingredient temp = IngredientModel.getIngredientById(rs2.getInt("id_ingrediente"));
-				res.addIngredient(temp, rs.getDouble("quantita"));
+				res.addIngredient(temp, rs2.getDouble("quantita"));
 
 			}
 
