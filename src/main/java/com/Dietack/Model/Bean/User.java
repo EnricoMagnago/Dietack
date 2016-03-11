@@ -4,9 +4,7 @@ package com.Dietack.Model.Bean;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author enrico.t
@@ -116,6 +114,66 @@ public class User implements Serializable {
 
 	public List<EatEvent> getEatEvents(){
 		return this.eatEvents;
+	}
+
+	public Collection<Recipe> filterRecipesForDiet(Collection<Recipe> list) {
+		double canEat = this.getCalories() - this.getAteCalories();
+		Collection<Recipe> resList = new LinkedList<Recipe>();
+		for(Recipe rec : list){
+			if(rec.getCalories() <= canEat)
+				resList.add(rec);
+		}
+		return resList;
+	}
+
+			public boolean isEmpty() {
+				return false;
+			}
+
+			public boolean contains(Object o) {
+				return false;
+			}
+
+			public Iterator<Recipe> iterator() {
+				return null;
+			}
+
+			public Object[] toArray() {
+				return new Object[0];
+			}
+
+			public <T> T[] toArray(T[] a) {
+				return null;
+			}
+
+			public boolean add(Recipe recipe) {
+				return false;
+			}
+
+			public boolean remove(Object o) {
+				return false;
+			}
+
+			public boolean containsAll(Collection<?> c) {
+				return false;
+			}
+
+			public boolean addAll(Collection<? extends Recipe> c) {
+				return false;
+			}
+
+			public boolean removeAll(Collection<?> c) {
+				return false;
+			}
+
+			public boolean retainAll(Collection<?> c) {
+				return false;
+			}
+
+			public void clear() {
+
+			}
+		}
 	}
 
 

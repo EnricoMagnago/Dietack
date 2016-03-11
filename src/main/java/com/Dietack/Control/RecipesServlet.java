@@ -2,7 +2,9 @@ package com.Dietack.Control;
 
 import com.Dietack.Model.Bean.Ingredient;
 import com.Dietack.Model.Bean.Recipe;
+import com.Dietack.Model.Bean.User;
 import com.Dietack.Model.RecipeModel;
+import com.Dietack.Model.UserModel;
 import javafx.util.Pair;
 import org.json.simple.JSONObject;
 
@@ -30,6 +32,15 @@ public class RecipesServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
+		int id = 1;
+		User user = null;
+		try {
+			user = UserModel.getUserById(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
 
 		String ingredientsString = request.getParameter("ingredients");
 		Collection<Ingredient> ingredients = null;
@@ -44,7 +55,8 @@ public class RecipesServlet extends HttpServlet {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
-		response.getWriter().write(toJSON(recipeList));
+
+		response.getWriter().write(toJSON(user.filterRecipesForDiet(recipeList)));
 	}
 
 	private Collection<Ingredient> parseIngredients(String string){

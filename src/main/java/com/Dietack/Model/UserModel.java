@@ -101,4 +101,26 @@ public class UserModel {
         else //if it's empty
             return null;
     }
+
+    public static User getUserById(int id) throws SQLException, NamingException{
+
+        Connection connection;
+        PreparedStatement ps;
+
+        String query = "SELECT * from utente\n" +
+                "WHERE id_utente = ? ;";
+
+        connection = Connector.getConnection();
+
+        ps = connection.prepareStatement(query);
+        ps.setInt(1, id);
+
+        List<User> userList = executeQuery(ps);
+
+        connection.close();
+        if (userList.size() > 0)
+            return userList.get(0);
+        else //if it's empty
+            return null;
+    }
 }
