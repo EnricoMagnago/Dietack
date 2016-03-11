@@ -39,4 +39,12 @@ public class Ingredient {
 	public String getMeasureUnit(){ return this.measureUnit; }
 
 	public void setMeasureUnit(String measureUnit){ this.measureUnit = measureUnit; }
+
+	public boolean equals(Object obj) {
+		return ((obj instanceof Ingredient)
+				&& (getId() == ((Ingredient) obj).getId()));
+
+	}
+
+
 }

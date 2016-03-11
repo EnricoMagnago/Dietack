@@ -51,10 +51,10 @@ public class IngredientModel {
 
     }
 
-    public static Collection<Ingredient> retainIfExist(Collection<Ingredient> lista)  throws SQLException, NamingException{
+    public static Collection<Ingredient> retainIfExist(Collection<String> lista)  throws SQLException, NamingException{
 	    Collection<Ingredient> res = new LinkedList<Ingredient>();
-	    for(Ingredient ingredient : lista){
-		    Ingredient ing = IngredientModel.getIngredientByName(ingredient.getName());
+	    for(String ingredient : lista){
+		    Ingredient ing = IngredientModel.getIngredientByName(ingredient);
 		    if(ing != null)
 			    res.add(ing);
 	    }

@@ -117,9 +117,11 @@ public class User implements Serializable {
 	}
 
 	public Collection<Recipe> filterRecipesForDiet(Collection<Recipe> list) {
+		System.out.println("user calories: " + this.getCalories());
 		double canEat = this.getCalories() - this.getAteCalories();
 		Collection<Recipe> resList = new LinkedList<Recipe>();
 		for(Recipe rec : list){
+			System.out.println("recipe calories: " + rec.getCalories());
 			if(rec.getCalories() <= canEat)
 				resList.add(rec);
 		}

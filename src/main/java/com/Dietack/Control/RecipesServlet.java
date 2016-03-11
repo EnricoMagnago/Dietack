@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by enrico on 10/03/16.
@@ -42,9 +39,11 @@ public class RecipesServlet extends HttpServlet {
 		}
 
 		String ingredientsString = request.getParameter("ingredients");
+		System.out.println(ingredientsString);
 		Collection<Ingredient> ingredients = null;
 		if(ingredientsString != null)
 			ingredients = parseIngredients(ingredientsString);
+			System.out.println(ingredients);
 
 		List<Recipe> recipeList = null; //query that given ingredients gives recipe list with given ingr.
 		try {
@@ -54,17 +53,19 @@ public class RecipesServlet extends HttpServlet {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
-
+		System.out.println(recipeList);
 		Collection<Recipe> filteredRecipes = user.filterRecipesForDiet(recipeList);
+		//response.getWriter().write(toJSON(recipeList));
 		if(filteredRecipes == null || filteredRecipes.isEmpty())
 			response.getWriter().write("{}");
 		else
 			response.getWriter().write(toJSON(filteredRecipes));
+
 	}
 
 	private Collection<Ingredient> parseIngredients(String string){
 		String[] stringList = string.split(",");
-		Collection<Ingredient> ingredientsFromUser = new ArrayList<Ingredient>(stringList.length);
+		Collection<String> ingredientsFromUser = new ArrayList<String>(Arrays.asList(stringList));
 		Collection<Ingredient> ingredients = null;
 
 		try {
