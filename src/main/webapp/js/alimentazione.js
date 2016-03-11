@@ -29,6 +29,7 @@ function setRecipeRandom(ingredients){
 }
 
 function updateRecipeList(json){
+	$("#ricette").empty();
 	for (var i = 0; i < json.recipes.length && i<3; i++){
 
 		var ingrediens = "<ul>";

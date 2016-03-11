@@ -107,7 +107,6 @@ public class RecipeModel {
 			Recipe recipe = RecipeModel.getRecipeById(rs.getInt("id_ricetta"));
 			recipes.add(recipe);
 		}
-
 		return recipes;
 	}
 }

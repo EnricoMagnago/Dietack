@@ -42,6 +42,7 @@ public class RecipesServlet extends HttpServlet {
 		}
 
 		String ingredientsString = request.getParameter("ingredients");
+		System.out.println("ingredients from http: " + ingredientsString);
 		Collection<Ingredient> ingredients = null;
 		if(ingredientsString != null)
 			ingredients = parseIngredients(ingredientsString);
@@ -54,7 +55,7 @@ public class RecipesServlet extends HttpServlet {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
-
+		System.out.println("user: " + user);
 		Collection<Recipe> filteredRecipes = user.filterRecipesForDiet(recipeList);
 		if(filteredRecipes == null || filteredRecipes.isEmpty())
 			response.getWriter().write("{}");
@@ -64,17 +65,18 @@ public class RecipesServlet extends HttpServlet {
 
 	private Collection<Ingredient> parseIngredients(String string){
 		String[] stringList = string.split(",");
-		Collection<Ingredient> ingredientsFromUser = new ArrayList<Ingredient>(stringList.length);
+		System.out.println("string splitted: " + stringList.length);
+
 		Collection<Ingredient> ingredients = null;
 
 		try {
-			ingredients = IngredientModel.retainIfExist(ingredientsFromUser);
+			ingredients = IngredientModel.retainIfExist(stringList);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
-
+		System.out.println("ingredients back: " + ingredients.size());
 		return ingredients;
 	}
 
