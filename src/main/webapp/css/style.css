@@ -250,3 +250,23 @@ footer {
     margin-bottom: 30px;
     
 }
+
+.up{
+    margin-left: 20px;
+}
+
+.cup{
+    margin-left: 30%;
+    margin-top: 50px;
+    
+}
+
+.creaRicetta{
+    margin-left: 40%;
+    width: 150px;
+    height: 40px;
+}
+
+#inputIngredients{
+    width: 250px;
+}
