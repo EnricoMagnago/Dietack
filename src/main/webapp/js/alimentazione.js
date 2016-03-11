@@ -65,7 +65,7 @@ function updateRecipeList(json){
 		$("#ricette").append( "<div class=\"row\">"+
 			"<div class=\"col-md-7\">"+
 			"<a href=\""+json.recipes[i].id+".jpg\">"+
-			"<img class=\"img-responsive\" src=\"http://placehold.it/700x300\">"+
+			"<img class=\"img-responsive imgSport\" src=\"../img/"+json.recipes[i].id+".jpg\">"+
 			"</a>"+
 			"</div>"+
 			"<div class=\"col-md-5\">"+
