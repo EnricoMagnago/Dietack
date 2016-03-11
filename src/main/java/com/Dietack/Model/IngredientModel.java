@@ -53,13 +53,13 @@ public class IngredientModel {
 
     }
 
-    public static Collection<Ingredient> retainIfExist(String[] lista)  throws SQLException, NamingException{
+
+    public static Collection<Ingredient> retainIfExist(Collection<String> lista)  throws SQLException, NamingException{
 	    Collection<Ingredient> res = new LinkedList<Ingredient>();
-	    System.out.println("lista.size: " + lista.length);
 	    for(String ingredient : lista){
-		    System.out.println("nome ingrediente: " + ingredient);
 		    Ingredient ing = IngredientModel.getIngredientByName(ingredient);
-		    if(ing != null) {
+		    if(ing != null){
+
 			    res.add(ing);
 			    System.out.println("nome ingrediente aggiunto: " + ing.getName());
 		    }

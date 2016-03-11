@@ -3,6 +3,7 @@ package com.Dietack.Model;
 import com.Dietack.Model.Bean.Ingredient;
 import com.Dietack.Model.Bean.Recipe;
 import com.sun.istack.internal.Nullable;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import javax.naming.NamingException;
 import java.sql.Connection;
@@ -74,39 +75,76 @@ public class RecipeModel {
 
 	}
 
-	public static List<Recipe> filterByIngredients(@Nullable  Collection<Ingredient> ingredients) throws SQLException, NamingException {
+	public static List<Recipe> filterByIngredients(Collection<Ingredient> ingredients) throws SQLException, NamingException {
 		List<Recipe> recipes = new LinkedList<Recipe>();
 
 		Connection connection;
 		ResultSet rs;
 
-		String query = "SELECT id_ricetta from ingredienti_ricetta AS ing_ric\n";
-		if(ingredients == null || ingredients.isEmpty()) //if there is nothing to filter, return all.
-			query += ";";
-		else {
+		/**
+		 * TODO: per prima cosa seleziono tutte le ricette con i loro ingredienti
+		 * 			poi il resto viene fatto da java con le collection.
+		 *
+		 */
 
-			for (int i = 0; i < ingredients.size() - 1; i++) {
-				query += " EXISTS (SELECT * from ingredienti_ricetta WHERE ingredienti_ricetta.id_ricetta = ing_ric.id.ricetta AND ingredienti_ricetta.id_ingrediente = ?) AND\n";
-			}
-			query += " EXISTS (SELECT * from ingredienti_ricetta WHERE ingredienti_ricetta.id_ricetta = ing_ric.id.ricetta AND ingredienti_ricetta.id_ingrediente = ?);";
-		}
+		String queryAllRicette = "SELECT * FROM ricetta;";
+
+
+
 
 		connection = Connector.getConnection();
-		PreparedStatement ps = connection.prepareStatement(query);
+		PreparedStatement ps = connection.prepareStatement(queryAllRicette);
 
-		if(ingredients != null && !ingredients.isEmpty()) {
-			int i = 1;
-			for (Ingredient ing : ingredients) {
-				ps.setInt(i, ing.getId());
-				i++;
-			}
-		}
+
 		rs = ps.executeQuery();
 
 		while(rs.next()){
-			Recipe recipe = RecipeModel.getRecipeById(rs.getInt("id_ricetta"));
-			recipes.add(recipe);
+			System.out.println("CICLO");
+			Collection collectionTemp = new LinkedList();
+			ResultSet rs2;
+			Recipe recipe = new Recipe();
+			recipe.setId(rs.getInt("id_ricetta"));
+			recipe.setName(rs.getString("nome"));
+			recipe.setFoto(rs.getString("foto"));
+			recipe.setInstructions(rs.getString("istruzioni"));
+
+			//now generate the list of pairs
+			String queryIngredienti = "SELECT * from ingredienti_ricetta\n" +
+					"WHERE id_ricetta = ? ;";
+			PreparedStatement ps2 = connection.prepareStatement(queryIngredienti);
+			ps2.setInt(1, recipe.getId());
+
+			rs2 = ps2.executeQuery();
+
+			while ( rs2.next() ) {
+
+				Ingredient temp = IngredientModel.getIngredientById(rs2.getInt("id_ingrediente"));
+				collectionTemp.add(temp);
+				System.out.println("AGGIUNGO INGREDIENTE " + temp.getId());
+				recipe.addIngredient(temp, rs2.getDouble("quantita"));
+
+			}
+
+			rs2.close();
+			ps2.close();
+
+			//adesso controllo se aggiungerli o no
+
+			if (collectionTemp.containsAll(ingredients) && ingredients.size() != 0) {
+
+				System.out.println(collectionTemp);
+				System.out.println((ingredients));
+				System.out.println("FOUND!");
+				recipes.add(recipe);
+
+			}
+
 		}
+
+		ps.close();
+		rs.close();
+		connection.close();
+
 		return recipes;
 	}
 }
