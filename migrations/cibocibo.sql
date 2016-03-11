@@ -1,4 +1,4 @@
-DROP DATABSE `dietack`;
+DROP DATABASE `dietack`;
 CREATE DATABASE  IF NOT EXISTS `dietack` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `dietack`;
 -- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)

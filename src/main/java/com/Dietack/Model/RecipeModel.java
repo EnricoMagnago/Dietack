@@ -2,8 +2,6 @@ package com.Dietack.Model;
 
 import com.Dietack.Model.Bean.Ingredient;
 import com.Dietack.Model.Bean.Recipe;
-import com.sun.istack.internal.Nullable;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import javax.naming.NamingException;
 import java.sql.Connection;
@@ -99,7 +97,6 @@ public class RecipeModel {
 		rs = ps.executeQuery();
 
 		while(rs.next()){
-			System.out.println("CICLO");
 			Collection collectionTemp = new LinkedList();
 			ResultSet rs2;
 			Recipe recipe = new Recipe();
@@ -120,7 +117,6 @@ public class RecipeModel {
 
 				Ingredient temp = IngredientModel.getIngredientById(rs2.getInt("id_ingrediente"));
 				collectionTemp.add(temp);
-				System.out.println("AGGIUNGO INGREDIENTE " + temp.getId());
 				recipe.addIngredient(temp, rs2.getDouble("quantita"));
 
 			}
@@ -129,18 +125,15 @@ public class RecipeModel {
 			ps2.close();
 
 			//adesso controllo se aggiungerli o no
-
-			if (collectionTemp.containsAll(ingredients) && ingredients.size() != 0) {
-
-				System.out.println(collectionTemp);
-				System.out.println((ingredients));
-				System.out.println("FOUND!");
+			if(ingredients != null && !ingredients.isEmpty()){
+				if (collectionTemp.containsAll(ingredients) && ingredients.size() != 0)
+					recipes.add(recipe);
+				
+			}else
 				recipes.add(recipe);
 
-			}
-
 		}
-
+		System.out.println("recipe size:" + recipes.size());
 		ps.close();
 		rs.close();
 		connection.close();
