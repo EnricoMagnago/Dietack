@@ -41,8 +41,8 @@ public class RecipeModel {
 			res.setFoto(rs.getString("foto"));
 
 			//now generate the list of pairs
-			String queryIngredienti = "SELECT * from ingredienti_ricetta\n" +
-					"WHERE id_ricetta = ? ;";
+			String queryIngredienti = "SELECT * from ingredienti\n" +
+					"WHERE id = ? ;";
 			PreparedStatement ps2 = connection.prepareStatement(queryIngredienti);
 			ps2.setInt(1, id);
 
@@ -50,7 +50,7 @@ public class RecipeModel {
 
 			while ( rs2.next() ) {
 
-				Ingredient temp = IngredientModel.getIngredientById(rs2.getInt("id_ingrediente"));
+				Ingredient temp = IngredientModel.getIngredientById(rs2.getInt("id"));
 				res.addIngredient(temp, rs.getDouble("quantita"));
 
 			}
