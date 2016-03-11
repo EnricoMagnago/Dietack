@@ -4,4 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>RecipesServlet</servlet-name
+    ><display-name>RecipesServlet</display-name>
+    <description/>
+    <servlet-class>com.Dietack.Control.RecipesServlet</servlet-class>
+  </servlet>
+
+<servlet-mapping>
+  <servlet-name>RecipesServlet</servlet-name>
+  <url-pattern>/getRecipes</url-pattern>
+</servlet-mapping>
 </web-app>
