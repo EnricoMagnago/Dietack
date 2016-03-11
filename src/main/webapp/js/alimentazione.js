@@ -14,7 +14,7 @@ function setRecipeRandom(ingredients){
     console.log("e2");
     console.log("i: "+ingredients);
     /*
-    $.getJSON("/RecipeServlet?ingrdients="+ingredients, function(json){
+    $.getJSON("/getRecipes?ingrdients="+ingredients, function(json){
 
         updateRecipeList(json);
 				
