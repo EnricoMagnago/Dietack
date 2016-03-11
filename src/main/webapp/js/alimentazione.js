@@ -35,7 +35,7 @@ function setRecipeRandom(ingredients){
 function accept(id){
 
 
-    $.getJSON("/addRecipeToHistory?parametri="+id, function(json){
+    $.getJSON("/addRecipeToHistory?idRicetta="+id, function(json){
 
        
 				
