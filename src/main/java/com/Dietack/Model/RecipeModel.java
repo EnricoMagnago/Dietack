@@ -40,6 +40,7 @@ public class RecipeModel {
 			res.setId(rs.getInt("id_ricetta"));
 			res.setName(rs.getString("nome"));
 			res.setFoto(rs.getString("foto"));
+			res.setInstructions(rs.getString("istruzioni"));
 
 			//now generate the list of pairs
 			String queryIngredienti = "SELECT * from ingredienti_ricetta\n" +
@@ -52,7 +53,7 @@ public class RecipeModel {
 			while ( rs2.next() ) {
 
 				Ingredient temp = IngredientModel.getIngredientById(rs2.getInt("id_ingrediente"));
-				res.addIngredient(temp, rs.getDouble("quantita"));
+				res.addIngredient(temp, rs2.getDouble("quantita"));
 
 			}
 

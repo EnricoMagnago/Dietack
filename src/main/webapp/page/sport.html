@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>sport</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <!-- Custom CSS -->
+    
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <title>sport</title>
+        
+        <!-- Bootstrap Core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Custom CSS -->
+        <!-- Custom CSS -->
         <link href="../css/style.css" rel="stylesheet">
         
         <!-- Custom Fonts -->
         <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-      
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
+        
+        
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+    </head>
+    
+    <body>
+        
+        <!-- Navigation -->
         <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -53,82 +53,196 @@
                 </li>
             </ul>
         </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Sport
-                    <small>Attività Proposte</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Project One Spesa energetica (KCal) = 0.9 x km percorsi x kg di peso corporeo-->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="../img/corsa.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3 id="nomeAttività">Corsa</h3>
-                <h4>Km da percorrere: <span id="tot">5 km</span></h4>
-                <h4>Calorie teoriche smaltite: <span id="tot">360 KCal</span></h4>
-                <p>Descrizione Attività:  <span id="descRicetta">corsa libera moderata.</span></p>
-                <a class="btn btn-primary" href="buonaattivitafisica.html">Accetta <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-
-        <hr>
-
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
+        
+        <!-- Page Content -->
+        <div class="container">
+            
+            <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="text-muted">Copyright &copy; Dietack</p>
+                    <h1 class="page-header">Sport
+                        <small>Attività Proposte</small>
+                    </h1>
                 </div>
             </div>
             <!-- /.row -->
-        </footer>
-
-    </div>
-    <!-- jQuery -->
+            
+            <!-- Project One Spesa energetica (KCal) = 0.9 x km percorsi x kg di peso corporeo-->
+            <div class="row">
+                <div class="col-md-7">
+                    <a href="#">
+                        <img class="img-responsive imgSport" src="../img/corsa.png" alt="">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <h3 id="nomeAttività">Corsa</h3>
+                    <h4>Km da percorrere: <span id="tot">5 km</span></h4>
+                    <h4>Calorie teoriche smaltite: <span id="tot">360 KCal</span></h4>
+                    <p>Descrizione Attività:  <span id="descRicetta">corsa libera moderata.</span></p>
+                    <button type="button" class="btn btn-default" id="btn1"> Dettagli ricerca <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></button>
+                    <div class="collapse" id="collapse1">
+                        <br>
+                        Cerca compagni:
+                        <p>
+                        <div class="col-md-9">
+                            <select class="form-control" id="category" name="categoryId">
+                                <option value="" disabled selected> Scegli amici</option>
+                                <option value="id">Stefano</option>
+                                <option value="id">Anna</option>
+                                <option value="id">Mauro</option>
+                                
+                            </select>
+                        </div>
+                        </p>
+                        <br>
+                        <br>
+                        <p><button type="button" class="btn btn-default" id="btn2"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></button> 
+                        </p>
+                    </div>
+                    <br>
+                    <br>
+                    
+                    <p>
+                        <a class="btn btn-primary" href="buonaattivitafisica.html">Accetta <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </p>
+                </div>
+            </div>
+            
+            <br>
+            <br>
+            <br>
+            <!-- Project One Spesa energetica (KCal) = 0.9 x km percorsi x kg di peso corporeo-->
+            <div class="row">
+                <div class="col-md-7">
+                    <a href="#">
+                        <img class="img-responsive imgSport" src="../img/addominali.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <h3 id="nomeAttività">Addominali</h3>
+                    <h4>Numuero Addominali: <span id="tot">4 x 30</span></h4>
+                    <h4>Calorie teoriche smaltite: <span id="tot">200 KCal</span></h4>
+                    <p>Descrizione Attività:  <span id="descRicetta">quattro serie di addominali bassi per 30 ripetizioni.</span></p>
+                    <button type="button" class="btn btn-default" id="btn3"> Dettagli ricerca <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></button>
+                    <div class="collapse" id="collapse2">
+                        <br>
+                        Cerca compagni:
+                        <p>
+                        <div class="col-md-9">
+                            <select class="form-control" id="category" name="categoryId">
+                                <option value="" disabled selected> Scegli amici</option>
+                                <option value="id">Stefano</option>
+                                <option value="id">Anna</option>
+                                <option value="id">Mauro</option>
+                                
+                            </select>
+                        </div>
+                        </p>
+                        <br>
+                        <br>
+                        <p><button type="button" class="btn btn-default" id="btn4"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></button> 
+                        </p>
+                    </div>
+                    <br>
+                    <br>
+                    
+                    <p>
+                        <a class="btn btn-primary" href="buonaattivitafisica.html">Accetta <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </p>
+                </div>
+            </div>
+            
+            
+            <br>
+            <br>
+            <br>
+            <!-- Project One Spesa energetica (KCal) = 0.9 x km percorsi x kg di peso corporeo-->
+            <div class="row">
+                <div class="col-md-7">
+                    <a href="#">
+                        <img class="img-responsive imgSport" src="../img/flessioni.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <h3 id="nomeAttività">Flessioni</h3>
+                    <h4>Numuero Addominali: <span id="tot">4 x 15</span></h4>
+                    <h4>Calorie teoriche smaltite: <span id="tot">250 KCal</span></h4>
+                    <p>Descrizione Attività:  <span id="descRicetta">quattro serie di flessioni per 15 ripetizioni.</span></p>
+                    <button type="button" class="btn btn-default" id="btn5"> Dettagli ricerca <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></button>
+                    <div class="collapse" id="collapse3">
+                        <br>
+                        Cerca compagni:
+                        <p>
+                        <div class="col-md-9">
+                            <select class="form-control" id="category" name="categoryId">
+                                <option value="" disabled selected> Scegli amici</option>
+                                <option value="id">Stefano</option>
+                                <option value="id">Anna</option>
+                                <option value="id">Mauro</option>
+                                
+                            </select>
+                        </div>
+                        </p>
+                        <br>
+                        <br>
+                        <p><button type="button" class="btn btn-default" id="btn6"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></button> 
+                        </p>
+                    </div>
+                    <br>
+                    <br>
+                    
+                    <p>
+                        <a class="btn btn-primary" href="buonaattivitafisica.html">Accetta <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- Pagination -->
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#">&laquo;</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#">&raquo;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.row -->
+            
+            <hr>
+            
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="text-muted">Copyright &copy; Dietack</p>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </footer>
+            
+        </div>
+        <!-- jQuery -->
         <script src="../js/jquery.js"></script>
         
         <!-- Bootstrap Core JavaScript -->
@@ -136,6 +250,31 @@
         
         <!-- Custom Theme JavaScript -->
         <script>
+          
+
+   
+            $("#btn1").click(function(){
+                $("#collapse1").collapse('show');
+            });
+            $("#btn2").click(function(){
+                $("#collapse1").collapse('hide');
+            });
+            
+              $("#btn3").click(function(){
+                $("#collapse2").collapse('show');
+            });
+            $("#btn4").click(function(){
+                $("#collapse2").collapse('hide');
+            });
+            
+              $("#btn5").click(function(){
+                $("#collapse3").collapse('show');
+            });
+            $("#btn6").click(function(){
+                $("#collapse3").collapse('hide');
+            });
+
+
             // Closes the sidebar menu
             $("#menu-close").click(function(e) {
                 e.preventDefault();
@@ -165,7 +304,7 @@
                 });
             });
         </script>
-
-</body>
-
+        
+    </body>
+    
 </html>
