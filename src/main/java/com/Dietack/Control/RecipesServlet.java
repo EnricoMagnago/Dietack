@@ -3,6 +3,7 @@ package com.Dietack.Control;
 import com.Dietack.Model.Bean.Ingredient;
 import com.Dietack.Model.Bean.Recipe;
 import com.Dietack.Model.Bean.User;
+import com.Dietack.Model.IngredientModel;
 import com.Dietack.Model.RecipeModel;
 import com.Dietack.Model.UserModel;
 import javafx.util.Pair;
@@ -61,10 +62,17 @@ public class RecipesServlet extends HttpServlet {
 
 	private Collection<Ingredient> parseIngredients(String string){
 		String[] stringList = string.split(",");
-		Collection<Ingredient> ingredients = new ArrayList<Ingredient>(stringList.length);
+		Collection<Ingredient> ingredientsFromUser = new ArrayList<Ingredient>(stringList.length);
+		Collection<Ingredient> ingredients = null;
 
-		// TODO check if the ingredients are in the db. -> query that given a list of ingrediends name returns a list of Ingrediens.
-		//ingredients = query(stringList);
+		try {
+			ingredients = IngredientModel.retainIfExist(ingredientsFromUser);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+
 		return ingredients;
 	}
 

@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * Created by hypertesto on 10/03/16.
@@ -47,6 +49,16 @@ public class IngredientModel {
 
         return res;
 
+    }
+
+    public static Collection<Ingredient> retainIfExist(Collection<Ingredient> lista)  throws SQLException, NamingException{
+	    Collection<Ingredient> res = new LinkedList<Ingredient>();
+	    for(Ingredient ingredient : lista){
+		    Ingredient ing = IngredientModel.getIngredientByName(ingredient.getName());
+		    if(ing != null)
+			    res.add(ing);
+	    }
+	    return res;
     }
 
     public static Ingredient getIngredientByName ( String name ) throws SQLException, NamingException {
