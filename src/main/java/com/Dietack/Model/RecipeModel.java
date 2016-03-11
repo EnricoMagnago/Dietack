@@ -133,7 +133,7 @@ public class RecipeModel {
 				recipes.add(recipe);
 
 		}
-		System.out.println("recipe size:" + recipes.size());
+
 		ps.close();
 		rs.close();
 		connection.close();

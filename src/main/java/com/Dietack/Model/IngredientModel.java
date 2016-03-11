@@ -61,7 +61,6 @@ public class IngredientModel {
 		    if(ing != null){
 
 			    res.add(ing);
-			    System.out.println("nome ingrediente aggiunto: " + ing.getName());
 		    }
 	    }
 	    return res;

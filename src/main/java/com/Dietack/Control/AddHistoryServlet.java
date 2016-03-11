@@ -44,11 +44,14 @@ public class AddHistoryServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(user == null) {
+			System.out.println("\tnull user: can not update history");
 			response.getWriter().write("null user");
 		}else if(recipe == null) {
+			System.out.println("\tnull recipe: can not update history");
 			response.getWriter().write("null recipe");
 		}else {
 			user.addEatEvent(recipe);
+			System.out.println("\trecipe " + recipe.getId() + " added to user: " + user.getIdUser());
 			response.getWriter().write("done");
 		}
 	}
