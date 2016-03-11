@@ -28,7 +28,7 @@ public class UserModel {
                 user.setName(rs.getString("nome"));
                 user.setSurname(rs.getString("cognome"));
                 user.setPhone(rs.getString("phone"));
-	            user.setCalories(rs.getDouble("dieta"));
+                user.setCalories(rs.getDouble("dieta"));
 
 
                 res.add(user);

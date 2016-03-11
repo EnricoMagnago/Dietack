@@ -34,6 +34,7 @@ public class IngredientModel {
 
             res = new Ingredient();
             res.setId(rs.getInt("id"));
+	        res.setName(rs.getString("nome"));
             res.setCalories(rs.getDouble("kcal"));
             res.setFoto(rs.getString("foto"));
 	        res.setMeasureUnit(rs.getString("um"));
@@ -52,12 +53,16 @@ public class IngredientModel {
 
     }
 
-    public static Collection<Ingredient> retainIfExist(Collection<Ingredient> lista)  throws SQLException, NamingException{
+
+    public static Collection<Ingredient> retainIfExist(Collection<String> lista)  throws SQLException, NamingException{
 	    Collection<Ingredient> res = new LinkedList<Ingredient>();
-	    for(Ingredient ingredient : lista){
-		    Ingredient ing = IngredientModel.getIngredientByName(ingredient.getName());
-		    if(ing != null)
+	    for(String ingredient : lista){
+		    Ingredient ing = IngredientModel.getIngredientByName(ingredient);
+		    if(ing != null){
+
 			    res.add(ing);
+			    System.out.println("nome ingrediente aggiunto: " + ing.getName());
+		    }
 	    }
 	    return res;
     }

@@ -29,8 +29,14 @@ function setRecipeRandom(ingredients){
 }
 
 function updateRecipeList(json){
+	$("#ricette").empty();
 	for (var i = 0; i < json.recipes.length && i<3; i++){
-		
+
+		var ingrediens = "<ul>";
+		for(var j=0; j < json.recipes[i].ingredients.length; j++){
+			ingrediens += "<li>" + json.recipes[i].ingredients[j].name + "</li>";
+		}
+		ingrediens += "</ul>"
 		
 		$("#ricette").append( "<div class=\"row\">"+
 			"<div class=\"col-md-7\">"+
@@ -40,7 +46,9 @@ function updateRecipeList(json){
 			"</div>"+
 			"<div class=\"col-md-5\">"+
 			"<h3 id=\"nomeRicetta\">"+json.recipes[i].name+"</h3>"+
-			"<p>Descrizione Ricetta:  <span id=\"descRicetta\">"+json.recipes[i].instructions+"</span></p>"+
+			"<h4 id=\"ingredienti\">ingredienti:</h4>"+
+				ingrediens +
+			"<p>Preparazione: <br> <span id=\"descRicetta\">"+json.recipes[i].instructions+"</span></p>"+
 			"<a class=\"btn btn-primary\" href=\"buonappetito.html\">Accetta <span class=\"glyphicon glyphicon-chevron-right\"></span></a>"+
 			"</div>"+
 			"</div>" +
