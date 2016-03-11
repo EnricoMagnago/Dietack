@@ -34,6 +34,7 @@ public class IngredientModel {
 
             res = new Ingredient();
             res.setId(rs.getInt("id"));
+	        res.setName(rs.getString("nome"));
             res.setCalories(rs.getDouble("kcal"));
             res.setFoto(rs.getString("foto"));
 	        res.setMeasureUnit(rs.getString("um"));
