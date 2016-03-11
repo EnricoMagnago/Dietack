@@ -1,8 +1,10 @@
 package com.Dietack.Model.Bean;
 
 
+import org.apache.commons.lang3.time.DateUtils;
+
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -98,6 +100,18 @@ public class User implements Serializable {
 	public void addEatEvent(Recipe recipe){
 		EatEvent eatEvent = new EatEvent(this.idUser, recipe, System.currentTimeMillis());
 		this.eatEvents.add(eatEvent);
+	}
+
+	public double getAteCalories(){
+		double total = 0;
+		for(EatEvent event : this.eatEvents){
+			Date date = new Date(event.getTimeStamp());
+			Date now = new Date(System.currentTimeMillis());
+			date = DateUtils.addDays(date, 1); //next day
+			if(date.before(now)) //ignore all the event occured before yesterday.
+				total += event.getRecipe().getCalories();
+		}
+		return total;
 	}
 
 	public List<EatEvent> getEatEvents(){
