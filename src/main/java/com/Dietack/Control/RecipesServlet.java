@@ -55,7 +55,11 @@ public class RecipesServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.getWriter().write(toJSON(user.filterRecipesForDiet(recipeList)));
+		Collection<Recipe> filteredRecipes = user.filterRecipesForDiet(recipeList);
+		if(filteredRecipes == null || filteredRecipes.isEmpty())
+			response.getWriter().write("{}");
+		else
+			response.getWriter().write(toJSON(filteredRecipes));
 	}
 
 	private Collection<Ingredient> parseIngredients(String string){
@@ -104,7 +108,8 @@ public class RecipesServlet extends HttpServlet {
 		obj.put("recipes", recipeJSONList);
 		return obj.toJSONString();
 	}
-/* //just for testing toJSON.
+
+/* //just for testing toJSON().
 	public static void main(String args[]){
 		Ingredient[] ingredienti = new Ingredient[10];
 		for(int i=0; i<10; i++) {
