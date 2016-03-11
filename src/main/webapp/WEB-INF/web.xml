@@ -12,6 +12,19 @@
     <servlet-class>com.Dietack.Control.RecipesServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>AddHistoryServlet</servlet-name
+    ><display-name>AddHistoryServlet</display-name>
+    <description/>
+    <servlet-class>com.Dietack.Control.AddHistoryServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AddHistoryServlet</servlet-name>
+    <url-pattern>/addRecipeToHistory</url-pattern>
+  </servlet-mapping>
+
+
 <servlet-mapping>
   <servlet-name>RecipesServlet</servlet-name>
   <url-pattern>/getRecipes</url-pattern>
